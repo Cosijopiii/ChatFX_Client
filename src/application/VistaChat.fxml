@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="497.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <AnchorPane fx:id="chat" StackPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="vboxChat" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="622.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" StackPane.alignment="CENTER">
+              <children>
+                <MenuBar VBox.vgrow="ALWAYS">
+                  <menus>
+                    <Menu mnemonicParsing="false" text="Archivo">
+                      <items>
+                        <MenuItem fx:id="mntCerrar" mnemonicParsing="false" onAction="#cerrar" text="Cerrar" />
+                              <MenuItem fx:id="closeSesion" mnemonicParsing="false" onAction="#CerrarSesion" text="cerrar sesión" />
+                      </items>
+                    </Menu>
+                  </menus>
+                </MenuBar>
+                <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="472.0" prefWidth="613.0" style="-fx-background-color: linear-gradient(to bottom, #1976d2, #03a9f4);;" VBox.vgrow="ALWAYS">
+                     <children>
+                        <TextArea fx:id="txtDatosEnviar" layoutX="15.0" layoutY="407.0" onKeyPressed="#enviarDatosEnter" prefHeight="39.0" prefWidth="334.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="273.0" />
+                        <Button fx:id="btnEnviarDatos" layoutX="361.0" layoutY="401.0" mnemonicParsing="false" onAction="#enviar" prefHeight="51.0" prefWidth="29.0" style="-fx-background-radius: 40; -fx-border-radius: 20;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="208.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="42.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" rotate="45.0" smooth="false">
+                                 <image>
+                                    <Image url="@resources/sendicon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextArea fx:id="txtDatos" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="371.0" prefWidth="394.0" style="-fx-background-color: #FFFFFF; -fx-text-inner-color: #212121;" wrapText="true" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextArea>
+                        <ListView fx:id="listUsuarios" layoutX="426.0" layoutY="14.0" onMouseClicked="#SelectItem" prefHeight="448.0" prefWidth="179.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
+                     </children>
+                </AnchorPane>
+              </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Login" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to bottom, #d32f2f, #6a5acd);" StackPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutY="196.0" prefHeight="301.0" prefWidth="622.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="196.0">
+               <children>
+                  <Button fx:id="btnRegistrar" layoutX="476.0" layoutY="223.0" mnemonicParsing="false" onAction="#RegistrarUsuario" prefHeight="59.0" prefWidth="60.0" style="-fx-background-radius: 50;" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="475.0">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/save.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="56.0" layoutY="20.0" prefHeight="36.0" prefWidth="150.0" text="Iniciar sesion" AnchorPane.rightAnchor="416.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="484.0" layoutY="77.0" text="Usuario " textFill="#212121" AnchorPane.leftAnchor="484.0" />
+                  <Label layoutX="475.0" layoutY="131.0" text="Contraseña" AnchorPane.leftAnchor="475.0" />
+                  <TextField fx:id="txtusuarioRegistrar" layoutX="418.0" layoutY="101.0" prefHeight="25.0" prefWidth="177.0" AnchorPane.leftAnchor="418.0" />
+                  <Label layoutX="390.0" layoutY="20.0" prefHeight="36.0" prefWidth="230.0" text="Registro de usuarios" AnchorPane.leftAnchor="390.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnLogin" layoutX="101.0" layoutY="223.0" mnemonicParsing="false" onAction="#IniciarSesion" prefHeight="59.0" prefWidth="60.0" style="-fx-background-radius: 50;" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="461.0">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/1458478638_key.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="101.0" layoutY="131.0" text="Contraseña" textFill="#212121" AnchorPane.rightAnchor="461.0" />
+                  <Label layoutX="109.0" layoutY="77.0" text="Usuario " textFill="#212121" AnchorPane.rightAnchor="469.0" />
+                  <TextField fx:id="txtUsuarioSesion" layoutX="43.0" layoutY="101.0" prefHeight="25.0" prefWidth="177.0" AnchorPane.rightAnchor="402.0" />
+                  <Line endX="100.0" fill="WHITE" layoutX="312.0" layoutY="148.0" rotate="90.0" startX="-100.0" AnchorPane.rightAnchor="209.5">
+                     <stroke>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </stroke>
+                  </Line>
+                  <Line endX="100.0" fill="WHITE" layoutX="325.0" layoutY="148.0" rotate="90.0" startX="-100.0" AnchorPane.leftAnchor="211.5">
+                     <stroke>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </stroke>
+                  </Line>
+                  <PasswordField fx:id="txtPasswordRegistrar" layoutX="417.0" layoutY="157.0" prefHeight="25.0" prefWidth="177.0" AnchorPane.leftAnchor="417.0" />
+                  <PasswordField fx:id="txtpasswordSesion" layoutX="42.0" layoutY="157.0" prefHeight="25.0" prefWidth="177.0" AnchorPane.rightAnchor="403.0" />
+               </children>
+            </AnchorPane>
+            <VBox alignment="CENTER" layoutX="193.0" prefHeight="194.0" prefWidth="190.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="239.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="135.0" fitWidth="203.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/chaticon.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="51.0" prefWidth="187.0" text="Bienvenido" textFill="WHITE">
+                     <font>
+                        <Font name="FZDengXian Regular" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
